@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
-
 
 import pandas as pd
 import numpy as np
@@ -14,15 +12,11 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import confusion_matrix, accuracy_score
 
 
-# In[3]:
-
 
 # HRV 데이터셋 불러오기
 hrv_df = pd.read_csv('E:/RESEARCH/Datasets/HRV_samsung/HRV_REV_all.csv', sep=',')
 hrv_df.head()
 
-
-# In[11]:
 
 
 # Checking the correlation between variables
@@ -31,8 +25,6 @@ plt.figure(figsize=(20, 20))
 sns.heatmap(hrv_df.corr())
 plt.show()
 
-
-# In[32]:
 
 
 ## Assigning X and Y values
@@ -58,14 +50,10 @@ y = hrv_target.values
 p = hrv_patient.values
 
 
-# In[29]:
-
 
 ## splitting the dataset into training set and test set
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.2, random_state = 0)
 
-
-# In[30]:
 
 
 # feature scaling. set values between 0 and 1
@@ -73,9 +61,6 @@ from sklearn.preprocessing import MinMaxScaler
 scaler = MinMaxScaler()
 x_train = scaler.fit_transform(x_train)
 x_test = scaler.fit_transform(x_test)
-
-
-# In[25]:
 
 
 ## KNN Classifier
@@ -89,7 +74,6 @@ x_test = scaler.fit_transform(x_test)
 # print('KNN Classifier Best Parameters:', grid_search.best_params_)
 
 
-# In[31]:
 
 
 from sklearn.linear_model import LogisticRegression
@@ -100,10 +84,5 @@ grid_search.fit(x_train, y_train)
 
 print('Logistic Regression Grid Search Best Accuracy = {:.2f}%'.format(grid_search.best_score_ *100))
 print('Logistic Regression Best Parameters:', grid_search.best_params_)
-
-
-# In[ ]:
-
-
 
 
