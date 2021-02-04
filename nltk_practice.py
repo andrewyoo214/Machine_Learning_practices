@@ -50,6 +50,7 @@ print(tp.proof())
 
 
 """
+Let's make the sentence below with nltk Tool.
 "The Law says that it is a crime for an American to sell weapons to hostile nations. The country Nono, and enemy of America, has some missiles, and all of its missiles were sold to it by Colonel West, who is American"
 """
 
