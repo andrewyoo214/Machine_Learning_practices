@@ -1,23 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[5]:
-
-
 ### Accuracy
-
-
-# In[6]:
-
-
 import sklearn
 
 print(sklearn.__version__)
 
-
-# In[7]:
-
-
+##
 import numpy as np
 from sklearn.base import BaseEstimator
 
@@ -38,9 +24,7 @@ class MyDummyClassifier(BaseEstimator):
         return pred
 
 
-# In[8]:
-
-
+##
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
@@ -75,9 +59,7 @@ def transform_features(df):
     return df
 
 
-# In[9]:
-
-
+##
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
@@ -87,7 +69,7 @@ titanic_df = pd.read_csv(titanic_train)
 y_titanic_df = titanic_df['Survived']
 X_titanic_df= titanic_df.drop('Survived', axis=1)
 X_titanic_df = transform_features(X_titanic_df)
-X_train, X_test, y_train, y_test=train_test_split(X_titanic_df, y_titanic_df,                                                   test_size=0.2, random_state=0)
+X_train, X_test, y_train, y_test=train_test_split(X_titanic_df, y_titanic_df,test_size=0.2, random_state=0)
 
 # 위에서 생성한 Dummy Classifier를 이용하여 학습/예측/평가 수행. 
 myclf = MyDummyClassifier()
@@ -97,9 +79,7 @@ mypredictions = myclf.predict(X_test)
 print('Dummy Classifier의 정확도는: {0:.4f}'.format(accuracy_score(y_test , mypredictions)))
 
 
-# In[ ]:
-
-
+##
 from sklearn.datasets import load_digits
 from sklearn.model_selection import train_test_split
 from sklearn.base import BaseEstimator
@@ -124,23 +104,17 @@ print(digits.target)
 print("### digits.target.shape:", digits.target.shape)
 
 
-# In[ ]:
-
-
+##
 digits.target == 7
 
 
-# In[ ]:
-
-
+##
 # digits번호가 7번이면 True이고 이를 astype(int)로 1로 변환, 7번이 아니면 False이고 0으로 변환. 
 y = (digits.target == 7).astype(int)
 X_train, X_test, y_train, y_test = train_test_split( digits.data, y, random_state=11)
 
 
-# In[ ]:
-
-
+##
 # 불균형한 레이블 데이터 분포도 확인. 
 print('레이블 테스트 세트 크기 :', y_test.shape)
 print('테스트 세트 레이블 0 과 1의 분포도')
@@ -152,15 +126,7 @@ fakeclf.fit(X_train , y_train)
 fakepred = fakeclf.predict(X_test)
 print('모든 예측을 0으로 하여도 정확도는:{:.3f}'.format(accuracy_score(y_test , fakepred)))
 
-
-# In[ ]:
-
-
 ### Confusion Matrix
-
-
-# In[ ]:
-
 
 from sklearn.metrics import confusion_matrix
 
@@ -168,24 +134,14 @@ from sklearn.metrics import confusion_matrix
 confusion_matrix(y_test , fakepred)
 
 
-# In[4]:
-
-
 ### Precision and Recall
-
-
-# In[ ]:
-
-
 from sklearn.metrics import accuracy_score, precision_score , recall_score
 
 print("정밀도:", precision_score(y_test, fakepred))
 print("재현율:", recall_score(y_test, fakepred))
 
 
-# In[ ]:
-
-
+##
 from sklearn.metrics import accuracy_score, precision_score , recall_score , confusion_matrix
 
 def get_clf_eval(y_test , pred):
@@ -198,9 +154,7 @@ def get_clf_eval(y_test , pred):
     print('정확도: {0:.4f}, 정밀도: {1:.4f}, 재현율: {2:.4f}'.format(accuracy , precision ,recall))
 
 
-# In[ ]:
-
-
+##
 import numpy as np
 import pandas as pd
 
@@ -213,7 +167,7 @@ y_titanic_df = titanic_df['Survived']
 X_titanic_df= titanic_df.drop('Survived', axis=1)
 X_titanic_df = transform_features(X_titanic_df)
 
-X_train, X_test, y_train, y_test = train_test_split(X_titanic_df, y_titanic_df,                                                     test_size=0.20, random_state=11)
+X_train, X_test, y_train, y_test = train_test_split(X_titanic_df, y_titanic_df, test_size=0.20, random_state=11)
 
 lr_clf = LogisticRegression()
 
@@ -222,15 +176,9 @@ pred = lr_clf.predict(X_test)
 get_clf_eval(y_test , pred)
 
 
-# In[ ]:
-
-
 # Precision and Recall has Trade-off
 
-
-# In[ ]:
-
-
+##
 pred_proba = lr_clf.predict_proba(X_test)
 pred  = lr_clf.predict(X_test)
 print('pred_proba()결과 Shape : {0}'.format(pred_proba.shape))
@@ -241,9 +189,7 @@ pred_proba_result = np.concatenate([pred_proba , pred.reshape(-1,1)],axis=1)
 print('두개의 class 중에서 더 큰 확률을 클래스 값으로 예측 \n',pred_proba_result[:3])
 
 
-# In[ ]:
-
-
+##
 from sklearn.preprocessing import Binarizer
 
 X = [[ 1, -1,  2],
