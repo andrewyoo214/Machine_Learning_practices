@@ -1,4 +1,4 @@
-# machine_learning_practices
+# Machine Learning/Deep Learning Practices
 
 
 Repository for personal Machine Learning practices including...
