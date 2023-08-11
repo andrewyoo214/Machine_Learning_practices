@@ -128,3 +128,13 @@ dmypy.json
 # Pyre type checker
 .pyre/
 data/cifar-10-python.tar.gz
+etc_prac/data/train_data_batch_9
+etc_prac/data/train_data_batch_8
+etc_prac/data/train_data_batch_7
+etc_prac/data/train_data_batch_6
+etc_prac/data/train_data_batch_5
+etc_prac/data/train_data_batch_4
+etc_prac/data/train_data_batch_3
+etc_prac/data/train_data_batch_2
+etc_prac/data/train_data_batch_10
+etc_prac/data/train_data_batch_1
