@@ -139,3 +139,4 @@ etc_prac/data/train_data_batch_2
 etc_prac/data/train_data_batch_10
 etc_prac/data/train_data_batch_1
 *.pt
+etc_prac/passwords.csv
